@@ -20,7 +20,7 @@ func NewTokenSale() *TokenSale {
 		log.Fatal(err)
 	}
 
-	address := common.HexToAddress("")
+	address := common.HexToAddress("0x4e492c31c51a8b73433a9b9c30fa0242e4e96362")
 	contractInstance, err := tokensale.NewTokensale(address, client)
 	if err != nil {
 		log.Fatalf("couldn't access smart contract %s", err)
@@ -48,11 +48,18 @@ func UpdateTokenPrice(newPrice uint64) error {
 
 func GetCurrentPriceInWei() error {
 	log.Printf("get current price in wei")
+	price, err := tokenManger.instance.CurrentPriceInWei(nil)
+	if err != nil {
+		log.Printf("error on getting price %s", err)
+	} else {
+		log.Printf("current price %d wei", price)
+	}
+
 	return nil
 }
 
 func Withdraw() error {
-	log.Println("transfer all mmoney to the owner")
+	log.Println("transfer all money to the owner")
 	return nil
 }
 

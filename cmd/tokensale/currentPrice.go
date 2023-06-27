@@ -9,7 +9,7 @@ import (
 var getCurrentPriceCommand = &cobra.Command{
 	Use:   "price",
 	Short: "returns current price in wei",
-	Args:  cobra.ExactArgs(1),
+	Args:  cobra.ExactArgs(0),
 	Run: func(cmd *cobra.Command, args []string) {
 		tokensale.GetCurrentPriceInWei()
 	},
